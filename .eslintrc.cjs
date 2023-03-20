@@ -36,6 +36,11 @@ module.exports = {
     'react/require-default-props': 0,
     '@typescript-eslint/no-use-before-define': 0,
     'no-param-reassign': ['error', { props: false }],
+    'import/prefer-default-export': 0,
+    'react/function-component-definition': [
+      2,
+      { namedComponents: 'arrow-function' },
+    ],
   },
   overrides: [
     {
