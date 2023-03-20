@@ -2,11 +2,13 @@ import { DefaultTheme } from 'styled-components';
 import { pxToRem, createBreakPoint } from '@/utils';
 
 export const colors = {
-  primary_bright: '#efeefe',
-  primary_light: '#d0ccfc',
+  primary_bright: '#EFEEFE',
+  primary_light: '#D0CCFC',
   primary: '#6558F5',
-  primary_dark: '#5a4fdc',
-  primary_darkest: '#5046c4',
+  primary_dark: '#5A4FDC',
+  primary_darkest: '#5046C4',
+  red: '#DC3544',
+  gray: '#9C9C9C',
   black: '#444444',
   white: '#FFFFFF',
 };
