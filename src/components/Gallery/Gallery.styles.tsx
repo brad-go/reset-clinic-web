@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Text } from '@/components';
+import { Text } from '@/components/Text';
 import { pxToRem } from '@/utils';
 
 export const Container = styled.div<{ width: string | number }>`
