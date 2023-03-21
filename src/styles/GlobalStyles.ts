@@ -8,6 +8,7 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
   }
 
   html {
@@ -22,7 +23,6 @@ const GlobalStyles = createGlobalStyle`
     height: 100%;
     text-size-adjust: none;
     color: ${({ theme }) => theme.colors.black};
-    font-family: 'Noto Sans KR', sans-serif; 
   }
 
   ol, ul, li {
