@@ -41,6 +41,12 @@ module.exports = {
       2,
       { namedComponents: 'arrow-function' },
     ],
+    'jsx-a11y/label-has-associated-control': [
+      2,
+      {
+        labelAttributes: ['htmlFor'],
+      },
+    ],
   },
   overrides: [
     {
