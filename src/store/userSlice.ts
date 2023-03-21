@@ -1,28 +1,40 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+import type { Preference, SmokingStatus } from '@/types';
+
 interface UserState {
-  username: string;
-  stopSmokingReason: string[];
-  smokingStatus: boolean;
+  visitorId: number;
+  nickname: string;
+  preference: Preference | null;
+  smokingStatus: SmokingStatus | null;
 }
 
 const initialState: UserState = {
-  username: '',
-  stopSmokingReason: [],
-  smokingStatus: true,
+  visitorId: 0,
+  nickname: '',
+  preference: null,
+  smokingStatus: null,
 };
 
-const counterSlice = createSlice({
+const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    updateUsername: (
-      state,
-      action: PayloadAction<Pick<UserState, 'username'>>
-    ) => {
-      state.username = action.payload.username;
+    setUserId: (user, action: PayloadAction<Pick<UserState, 'visitorId'>>) => {
+      user.visitorId = action.payload.visitorId;
+    },
+    setUser: (user, action: PayloadAction<UserState>) => {
+      const { nickname, preference, smokingStatus } = action.payload;
+
+      user.nickname = nickname;
+      user.preference = preference;
+      user.smokingStatus = smokingStatus;
     },
   },
 });
 
-export default counterSlice;
+const { actions, reducer } = userSlice;
+
+export const { setUserId, setUser } = actions;
+
+export default reducer;

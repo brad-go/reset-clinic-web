@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { Button } from '@/components';
+import { Button } from '@/components/Button';
 import { getImages } from '@/services';
 import { getRandomNumber } from '@/utils';
 

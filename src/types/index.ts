@@ -10,3 +10,16 @@ export type CombineElementProps<T extends ElementType, K = unknown> = Combine<
 export type OverridableProps<T extends ElementType, K = unknown> = {
   as?: T;
 } & CombineElementProps<T, K>;
+
+export interface CustomObject<T> {
+  [key: string]: T;
+}
+
+export type {
+  DefaultRequest,
+  LandingRequest,
+  ImageVideoRequest,
+  FormRequest,
+  RequestData,
+} from './request';
+export type { Preference, SmokingStatus } from './user';
