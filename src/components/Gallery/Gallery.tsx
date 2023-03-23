@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { Button } from '@/components/Button';
 import { getImages } from '@/services';
-import { getRandomNumber } from '@/utils';
+import { getRandomNumberWithRange } from '@/utils';
 
 import * as S from './Gallery.styles';
 
@@ -20,10 +20,10 @@ const Gallery = ({ width = '100%' }: GalleryProps) => {
   const [index, setIndex] = useState(0);
 
   const handleClick = () => {
-    let newIndex = getRandomNumber(0, images.length - 1);
+    let newIndex = getRandomNumberWithRange(0, images.length - 1);
 
     if (index === newIndex) {
-      newIndex = getRandomNumber(0, images.length - 1);
+      newIndex = getRandomNumberWithRange(0, images.length - 1);
     }
 
     setIndex(newIndex);

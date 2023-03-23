@@ -1,4 +1,12 @@
-const getRandomNumber = (min: number, max: number) => {
+import { v4 as uuidv4 } from 'uuid';
+
+export const generateRandomUniqueId = () => {
+  const uniqueId = uuidv4();
+
+  return BigInt(`0x${uniqueId.replace(/-/g, '')}`).toString();
+};
+
+export const getRandomNumberWithRange = (min: number, max: number) => {
   if (!Number.isInteger(min) || !Number.isInteger(max)) {
     throw new Error('정수만 입력할 수 있습니다.');
   }
@@ -9,5 +17,3 @@ const getRandomNumber = (min: number, max: number) => {
 
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
-
-export default getRandomNumber;

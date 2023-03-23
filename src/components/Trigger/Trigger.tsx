@@ -1,7 +1,7 @@
 import * as S from './Trigger.styles';
 
 interface TriggerProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
 }
 

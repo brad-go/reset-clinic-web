@@ -1,5 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router-dom';
 import { configureStore } from '@reduxjs/toolkit';
 import {
   persistReducer,
@@ -44,7 +45,9 @@ export const decorators = [
       <PersistGate loading={null} persistor={persistor}>
         <ThemeProvider theme={theme}>
           <GlobalStyles />
-          <Story />
+          <MemoryRouter initialEntries={['/']}>
+            <Story />
+          </MemoryRouter>
         </ThemeProvider>
       </PersistGate>
     </Provider>

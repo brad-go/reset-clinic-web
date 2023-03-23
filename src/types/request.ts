@@ -1,24 +1,24 @@
 import type { Preference, SmokingStatus } from './user';
 
 export interface DefaultRequest {
-  visitorId: number;
+  visitorId: string;
   at: string;
 }
 
 export interface LandingRequest {
-  visitorId: number;
+  visitorId: string;
   landingAt: string;
   newVisitor: 'TRUE' | 'FALSE';
 }
 
 export interface ImageVideoRequest {
-  visitorId: number;
+  visitorId: string;
   contentsNumber: number;
   nextImageOrVideoEndAt: string;
 }
 
 export interface FormRequest {
-  visitorId: number;
+  visitorId: string;
   nickname: string;
   preference: Preference;
   smokingStatus: SmokingStatus;
