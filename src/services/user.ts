@@ -3,7 +3,7 @@ import axios, { AxiosRequestConfig } from 'axios';
 import type { RequestData } from '@/types';
 
 const axiosConfig: AxiosRequestConfig = {
-  baseURL: import.meta.env.API_URL,
+  baseURL: import.meta.env.VITE_API_END_POINT,
 };
 
 const instance = axios.create(axiosConfig);

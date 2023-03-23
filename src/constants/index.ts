@@ -5,3 +5,4 @@ export {
   PREFERENCE_OPTIONS,
   FIELDSETS,
 } from './form';
+export { KAKAO } from './kakao';
