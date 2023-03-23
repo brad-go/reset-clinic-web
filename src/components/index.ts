@@ -5,3 +5,5 @@ export { VideoPlayer } from './VideoPlayer';
 export { Gallery } from './Gallery';
 export { Trigger } from './Trigger';
 export { Select } from './Select';
+export { Header } from './Header';
+export { Layout } from './Layout';
