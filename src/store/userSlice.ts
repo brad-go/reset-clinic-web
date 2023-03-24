@@ -7,7 +7,7 @@ const initialState: User = {
   nickname: '',
   preference: null,
   smokingStatus: null,
-  seen: [],
+  seenVideos: [],
 };
 
 const userSlice = createSlice({
@@ -24,11 +24,14 @@ const userSlice = createSlice({
       user.preference = preference;
       user.smokingStatus = smokingStatus;
     },
+    setSeenVideos: (user, action: PayloadAction<{ videoId: number }>) => {
+      user.seenVideos = [...user.seenVideos, action.payload.videoId];
+    },
   },
 });
 
 const { actions, reducer } = userSlice;
 
-export const { setUserId, setUser } = actions;
+export const { setUserId, setUser, setSeenVideos } = actions;
 
 export default reducer;

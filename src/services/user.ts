@@ -28,9 +28,14 @@ export const requestUserData = async (url: string, data: RequestData) => {
 
 const getRandomVideo = (videos: Video[], videoType: VideoType) => {
   const preferedVideos = videos.filter(({ type }) => type === videoType);
-  const index = getRandomNumberWithRange(0, preferedVideos.length - 1);
 
-  return preferedVideos[index];
+  if (preferedVideos.length > 0) {
+    const index = getRandomNumberWithRange(0, preferedVideos.length - 1);
+
+    return preferedVideos[index];
+  }
+
+  return videos[getRandomNumberWithRange(0, preferedVideos.length - 1)];
 };
 
 export const findUserPreferedVideo = (user: User) => {
@@ -38,5 +43,7 @@ export const findUserPreferedVideo = (user: User) => {
     return getRandomVideo(VIDEOS, 'NEW');
   }
 
-  return getRandomVideo(VIDEOS, user.preference);
+  const filtered = VIDEOS.filter(({ id }) => !user.seenVideos.includes(id));
+
+  return getRandomVideo(filtered, user.preference);
 };

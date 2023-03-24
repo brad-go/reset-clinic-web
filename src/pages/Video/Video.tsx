@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { VideoPlayer } from '@/components';
 import { useAppSelector } from '@/hooks';
+import { setSeenVideos } from '@/store/userSlice';
 import { requestUserData, findUserPreferedVideo } from '@/services';
 import { getLocalDateString } from '@/utils';
 
@@ -21,6 +22,7 @@ const Video = () => {
       nextImageOrVideoEndAt: getLocalDateString(),
     };
 
+    setSeenVideos({ videoId: video.id });
     requestUserData('/video-end', requestData);
     navigate('/main');
   };

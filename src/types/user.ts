@@ -13,5 +13,5 @@ export interface User {
   nickname: string;
   preference: Preference | null;
   smokingStatus: SmokingStatus | null;
-  seen: number[];
+  seenVideos: number[];
 }
