@@ -4,7 +4,7 @@ import {
   Route,
 } from 'react-router-dom';
 
-import { Home, Video } from '@/pages';
+import { Home, Video, Main } from '@/pages';
 import { Layout } from '@/components';
 
 const router = createBrowserRouter(
@@ -12,6 +12,7 @@ const router = createBrowserRouter(
     <Route element={<Layout />}>
       <Route path="/" element={<Home />} />
       <Route path="/video" element={<Video />} />
+      <Route path="/main" element={<Main />} />
     </Route>
   )
 );

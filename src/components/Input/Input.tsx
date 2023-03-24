@@ -11,7 +11,7 @@ export interface InputProps extends ComponentPropsWithoutRef<'input'> {
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ id, value, isError, onChange, ...rest }, ref) => {
+  ({ id, value, placeholder, isError, onChange, ...rest }, ref) => {
     return (
       <S.Container>
         <S.Input
@@ -20,7 +20,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           type="text"
           value={value}
           required
-          placeholder="닉네임을 입력해주세요."
+          placeholder={placeholder}
           isError={isError}
           onChange={onChange}
           {...rest}

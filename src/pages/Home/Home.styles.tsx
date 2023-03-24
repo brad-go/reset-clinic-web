@@ -13,7 +13,14 @@ export const Container = styled.div`
 `;
 
 export const Header = styled(Text)`
+  margin-bottom: ${pxToRem(16)};
+  text-align: center;
   white-space: pre-wrap;
+  line-height: 1.4;
+
+  @media ${({ theme }) => theme.breakpoints.md} {
+    font-size: ${({ theme }) => theme.fontSizes.lg};
+  }
 `;
 
 export const Footer = styled(Text)`

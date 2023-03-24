@@ -7,3 +7,5 @@ export { Trigger } from './Trigger';
 export { Select } from './Select';
 export { Header } from './Header';
 export { Layout } from './Layout';
+export { Form } from './Form';
+export { ShareLink } from './ShareLink';

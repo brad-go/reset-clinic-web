@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
-import { Text, Button } from '@/components';
+import { Text } from '@/components/Text';
+import { Button } from '@/components/Button';
 import { pxToRem } from '@/utils';
 
 export const Form = styled.form``;
@@ -13,24 +14,14 @@ export const Fieldset = styled.fieldset`
 `;
 
 export const Legend = styled.legend`
-  font-size: ${({ theme }) => theme.fontSizes.sm};
   font-weight: 500;
-
-  @media ${({ theme }) => theme.breakpoints.sm} {
-    font-size: ${({ theme }) => theme.fontSizes.md};
-  }
 `;
 
 export const Label = styled.label`
   position: relative;
   display: block;
   margin-bottom: ${pxToRem(28)};
-  font-size: ${({ theme }) => theme.fontSizes.sm};
   font-weight: 500;
-
-  @media ${({ theme }) => theme.breakpoints.sm} {
-    font-size: ${({ theme }) => theme.fontSizes.md};
-  }
 `;
 
 export const ButtonContainer = styled.div`

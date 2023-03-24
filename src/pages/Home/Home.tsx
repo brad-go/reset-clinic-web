@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
-import { Trigger } from '@/components';
+import { Text, Trigger } from '@/components';
 import { useAppSelector } from '@/hooks';
 import { requestUserData } from '@/services';
 import { getLocalDateString } from '@/utils';
@@ -26,7 +26,8 @@ const Home = () => {
     <S.Container>
       {nickname && (
         <S.Header>
-          {nickname}님 잘 오셨어요! 오늘 하루도 금연 화이팅 합시다!
+          <Text as="b">{nickname}</Text>님 잘 오셨어요!{'\n'} 오늘 하루도 금연
+          화이팅 합시다!
         </S.Header>
       )}
       <NavLink to="/video">
