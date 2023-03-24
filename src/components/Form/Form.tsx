@@ -1,11 +1,13 @@
 import { useCallback, useState } from 'react';
 
-import { FIELDSETS, SMOKING_STATUS, PREFERENCE } from '@/constants/index';
-import { Text, Input, Select } from '@/components';
-import { useAppDispatch, useAppSelector } from '@/hooks';
+import { FIELDSETS, SMOKING_STATUS, PREFERENCE } from '@/constants';
+import { Text } from '@/components/Text';
+import { Input } from '@/components/Input';
+import { Select } from '@/components/Select';
 import { setUser } from '@/store/userSlice';
-import { getLocalDateString } from '@/utils';
+import { useAppDispatch, useAppSelector } from '@/hooks';
 import { requestUserData } from '@/services';
+import { getLocalDateString } from '@/utils';
 
 import type { RootState } from '@/store';
 import type {
@@ -30,12 +32,12 @@ const initialFormErrors: CustomObject<boolean> = {
 };
 
 const Form = () => {
-  const [values, setValues] = useState(initialFormValues);
-  const [errors, setErrors] = useState(initialFormErrors);
-  const [isSaved, setIsSaved] = useState(false);
-
   const user = useAppSelector((state: RootState) => state.user);
   const dispatch = useAppDispatch();
+
+  const [values, setValues] = useState(initialFormValues);
+  const [errors, setErrors] = useState(initialFormErrors);
+  const [isSaved, setIsSaved] = useState(!!user.nickname);
 
   const handleClick = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
     const { id, name } = e.target as HTMLButtonElement;
@@ -56,21 +58,21 @@ const Form = () => {
     let isValid = true;
 
     Object.entries(values).forEach(([key, value]) => {
-      if (value) return;
+      if (value || (key === 'nickname' && user.nickname)) return;
 
       setErrors((prev) => ({ ...prev, [key]: true }));
       isValid = false;
     });
 
     return isValid;
-  }, [values]);
+  }, [values, user.nickname]);
 
   const updateUser = useCallback(() => {
     const newUser = {
       ...user,
-      nickname: values.nickname,
-      smokingStatus: values.smokingStatus as SmokingStatus,
+      nickname: user.nickname || values.nickname,
       preference: values.preference as Preference,
+      smokingStatus: values.smokingStatus as SmokingStatus,
     };
 
     dispatch(setUser(newUser));
@@ -84,11 +86,12 @@ const Form = () => {
 
     try {
       await requestUserData('/create-nickname', userData);
+      updateUser();
       setIsSaved(true);
     } catch (err) {
       setErrors((prev) => ({ ...prev, nickname: true }));
     }
-  }, [user]);
+  }, [user, updateUser]);
 
   const handleSubmit = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -96,17 +99,20 @@ const Form = () => {
 
       if (isSaved) {
         setIsSaved(false);
-        setValues(initialFormValues);
+        setValues((prev) => ({
+          ...prev,
+          preference: '',
+          smokingStatus: '',
+        }));
         setErrors(initialFormErrors);
         return;
       }
 
       if (!isValidForm()) return;
 
-      updateUser();
       logUser();
     },
-    [isValidForm, logUser, updateUser, isSaved]
+    [isValidForm, logUser, isSaved]
   );
 
   return isSaved ? (
@@ -150,7 +156,8 @@ const Form = () => {
         <Input
           id="nickname"
           name="nickname"
-          value={values.nickname}
+          value={user.nickname || values.nickname}
+          placeholder="닉네임을 입력해주세요"
           isError={errors.nickname}
           onChange={handleChange}
           onFocus={handleFocus}
