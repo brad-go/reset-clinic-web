@@ -94,7 +94,7 @@ export const CloseButton = styled.button`
 `;
 
 export const Alert = styled.div<{ isCopied: boolean }>`
-  position: absolute;
+  position: fixed;
   left: 50%;
   width: max-content;
   padding: ${pxToRem(8)} ${pxToRem(16)};
@@ -108,26 +108,13 @@ export const Alert = styled.div<{ isCopied: boolean }>`
   ${({ isCopied }) =>
     isCopied
       ? css`
-          bottom: 22vh;
+          bottom: 5vh;
           opacity: 1;
         `
       : css`
           bottom: 0;
           opacity: 0;
         `}
-
-  @media ${({ theme }) => theme.breakpoints.sm} {
-    ${({ isCopied }) =>
-      isCopied
-        ? css`
-            bottom: 5vh;
-            opacity: 1;
-          `
-        : css`
-            bottom: 0;
-            opacity: 0;
-          `}
-  }
 `;
 
 export const Backdrop = styled.div`
