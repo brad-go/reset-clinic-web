@@ -1,19 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import type { Preference, SmokingStatus } from '@/types';
-
-interface User {
-  visitorId: string;
-  nickname: string;
-  preference: Preference | null;
-  smokingStatus: SmokingStatus | null;
-}
+import type { User } from '@/types';
 
 const initialState: User = {
   visitorId: '',
   nickname: '',
   preference: null,
   smokingStatus: null,
+  seen: [],
 };
 
 const userSlice = createSlice({

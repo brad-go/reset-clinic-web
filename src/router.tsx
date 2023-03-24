@@ -4,13 +4,14 @@ import {
   Route,
 } from 'react-router-dom';
 
-import { Home } from '@/pages';
+import { Home, Video } from '@/pages';
 import { Layout } from '@/components';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<Layout />}>
       <Route path="/" element={<Home />} />
+      <Route path="/video" element={<Video />} />
     </Route>
   )
 );

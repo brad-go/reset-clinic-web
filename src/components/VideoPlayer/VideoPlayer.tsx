@@ -6,11 +6,10 @@ interface VideoPlayerProps {
   url: string;
   controls?: boolean;
   width?: string;
-  onStart: () => void;
-  onPlay: () => void;
-  onStop: () => void;
-  onPause: () => void;
-  onEnded: () => void;
+  onStart?: () => void;
+  onPlay?: () => void;
+  onPause?: () => void;
+  onEnded?: () => void;
 }
 
 const VideoPlayer = ({
@@ -20,7 +19,6 @@ const VideoPlayer = ({
   onStart,
   onPlay,
   onPause,
-  onStop,
   onEnded,
 }: VideoPlayerProps) => {
   return (
@@ -30,10 +28,10 @@ const VideoPlayer = ({
         controls={controls}
         width="100%"
         height="100%"
+        playing
         onStart={onStart}
         onPlay={onPlay}
         onPause={onPause}
-        onStop={onStop}
         onEnded={onEnded}
       />
     </S.Container>
