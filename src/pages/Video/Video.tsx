@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 
 import { VideoPlayer } from '@/components';
-import { useAppSelector } from '@/hooks';
+import { useAppDispatch, useAppSelector } from '@/hooks';
 import { setSeenVideos } from '@/store/userSlice';
 import { requestUserData, findUserPreferedVideo } from '@/services';
 import { getLocalDateString } from '@/utils';
@@ -12,6 +12,7 @@ import * as S from './Video.styles';
 
 const Video = () => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const user = useAppSelector((state: RootState) => state.user);
   const video = findUserPreferedVideo(user);
 
@@ -22,7 +23,7 @@ const Video = () => {
       nextImageOrVideoEndAt: getLocalDateString(),
     };
 
-    setSeenVideos({ videoId: video.id });
+    dispatch(setSeenVideos({ videoId: video.id }));
     requestUserData('/video-end', requestData);
     navigate('/main');
   };

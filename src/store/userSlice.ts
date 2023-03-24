@@ -25,7 +25,11 @@ const userSlice = createSlice({
       user.smokingStatus = smokingStatus;
     },
     setSeenVideos: (user, action: PayloadAction<{ videoId: number }>) => {
-      user.seenVideos = [...user.seenVideos, action.payload.videoId];
+      const { videoId } = action.payload;
+
+      if (user.seenVideos.includes(videoId)) return;
+
+      user.seenVideos.push(videoId);
     },
   },
 });
