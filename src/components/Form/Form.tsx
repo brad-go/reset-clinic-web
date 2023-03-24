@@ -79,8 +79,13 @@ const Form = () => {
   }, [dispatch, values, user]);
 
   const logUser = useCallback(async () => {
+    const { visitorId } = user;
+    const { nickname, preference, smokingStatus } = values;
     const userData = {
-      ...user,
+      visitorId,
+      nickname,
+      preference,
+      smokingStatus,
       formSavedAt: getLocalDateString(),
     } as FormRequest;
 
@@ -91,7 +96,7 @@ const Form = () => {
     } catch (err) {
       setErrors((prev) => ({ ...prev, nickname: true }));
     }
-  }, [user, updateUser]);
+  }, [user, values, updateUser]);
 
   const handleSubmit = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -157,6 +162,7 @@ const Form = () => {
           id="nickname"
           name="nickname"
           value={user.nickname || values.nickname}
+          disabled={!!user.nickname}
           placeholder="닉네임을 입력해주세요"
           isError={errors.nickname}
           onChange={handleChange}
