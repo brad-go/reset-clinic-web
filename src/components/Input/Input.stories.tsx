@@ -17,5 +17,4 @@ Default.args = {};
 export const Error = Template.bind({});
 Error.args = {
   value: '닉네임',
-  status: 'error',
 };
