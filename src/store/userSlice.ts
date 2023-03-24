@@ -27,7 +27,7 @@ const userSlice = createSlice({
     setSeenVideos: (user, action: PayloadAction<{ videoId: number }>) => {
       const { videoId } = action.payload;
 
-      if (user.seenVideos.includes(videoId)) return;
+      if (!user.seenVideos || user.seenVideos.includes(videoId)) return;
 
       user.seenVideos.push(videoId);
     },
