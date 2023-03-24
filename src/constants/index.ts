@@ -6,3 +6,4 @@ export {
   FIELDSETS,
 } from './form';
 export { KAKAO } from './kakao';
+export { VIDEOS } from './video';
