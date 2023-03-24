@@ -14,7 +14,11 @@ const instance = axios.create(axiosConfig);
 
 export const requestUserData = async (url: string, data: RequestData) => {
   try {
-    const response = await instance.post(url, data);
+    const response = await instance.post(url, data, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
 
     console.log(response);
   } catch (e) {

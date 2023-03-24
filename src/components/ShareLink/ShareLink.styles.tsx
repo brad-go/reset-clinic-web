@@ -13,9 +13,11 @@ export const Container = styled.div<{ isOpen: boolean }>`
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.6);
   transition: bottom 0.3s ease-in-out;
+  pointer-events: ${({ isOpen }) => (isOpen ? 'auto' : 'none')};
   z-index: 101;
 
   @media ${({ theme }) => theme.breakpoints.sm} {
+    display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
     bottom: none;
     top: 50%;
     left: 50%;

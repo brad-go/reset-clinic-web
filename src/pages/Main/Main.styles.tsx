@@ -29,7 +29,6 @@ export const LinkContainer = styled.div`
   align-items: flex-end;
   width: 100%;
   max-width: ${pxToRem(760)};
-  z-index: 200;
 `;
 
 export const FormContainer = styled.div`
@@ -38,7 +37,6 @@ export const FormContainer = styled.div`
   gap: ${pxToRem(24)};
   width: 100%;
   max-width: ${pxToRem(760)};
-  z-index: 200;
 `;
 
 export const SurveyContainer = styled.div`
