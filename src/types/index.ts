@@ -22,4 +22,4 @@ export type {
   FormRequest,
   RequestData,
 } from './request';
-export type { Preference, SmokingStatus } from './user';
+export type { User, Preference, SmokingStatus } from './user';
