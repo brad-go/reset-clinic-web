@@ -47,15 +47,6 @@ export const FormContainer = styled.div`
   }
 `;
 
-export const SurveyContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: ${pxToRem(24)};
-  width: 100%;
-  max-width: ${pxToRem(760)};
-`;
-
 export const Heading = styled.h3`
   width: 100%;
   margin-top: 0;

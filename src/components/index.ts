@@ -9,3 +9,4 @@ export { Header } from './Header';
 export { Layout } from './Layout';
 export { Form } from './Form';
 export { ShareLink } from './ShareLink';
+export { Survey } from './Survey';
