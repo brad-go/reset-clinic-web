@@ -1,11 +1,7 @@
 import { useState } from 'react';
 
 import { Button } from '@/components/Button';
-import { useAppSelector } from '@/hooks';
-import { requestUserData } from '@/services';
-import { getRandomNumberWithRange, getLocalDateString } from '@/utils';
 
-import type { RootState } from '@/store';
 import type { CravingResponseImage } from '@/constants/image';
 
 import * as S from './Gallery.styles';
@@ -16,24 +12,10 @@ interface GalleryProps {
 }
 
 const Gallery = ({ images, width = '100%' }: GalleryProps) => {
-  const { visitorId } = useAppSelector((state: RootState) => state.user);
   const [index, setIndex] = useState(0);
 
   const handleClick = () => {
-    let newIndex = getRandomNumberWithRange(0, images.length - 1);
-
-    if (index === newIndex) {
-      newIndex = getRandomNumberWithRange(0, images.length - 1);
-    }
-
-    const requestData = {
-      visitorId,
-      contentsNumber: index,
-      nextImageOrVideoEndAt: getLocalDateString(),
-    };
-
-    setIndex(newIndex);
-    requestUserData('/next-image', requestData);
+    setIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
 
   return (
