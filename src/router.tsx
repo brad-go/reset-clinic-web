@@ -13,6 +13,7 @@ const router = createBrowserRouter(
       <Route path="/" element={<Home />} />
       <Route path="/video" element={<Video />} />
       <Route path="/main" element={<Main />} />
+      <Route path="/*" element={<Home />} />
     </Route>
   )
 );
