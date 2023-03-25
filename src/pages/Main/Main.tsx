@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react';
 
 import { Text, Button, Gallery, Form, ShareLink } from '@/components';
+import { CRAVING_RESPONSE_IMAGES } from '@/constants';
 
 import * as S from './Main.styles';
 
@@ -17,7 +18,7 @@ const Main = () => {
 
   return (
     <S.Container>
-      <Gallery />
+      <Gallery images={CRAVING_RESPONSE_IMAGES} />
       <S.LinkContainer>
         <S.Heading>도움이 되셨나요?</S.Heading>
         <Text>
