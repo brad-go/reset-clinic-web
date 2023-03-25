@@ -44,7 +44,7 @@ const Main = () => {
           도움이 되셨나요?{'\n'}이 페이지가 담배를 참는 데에 도움이 되셨다면
           SNS로 공유하시거나 링크를 저장해 두시고 담배가 땡길 때마다 들어오세요!
         </Text>
-        <Button onClick={handleShareLinkClick}>공유하기</Button>
+        <Button onClick={handleShareLinkClick}>링크 나에게로 보내놓기</Button>
       </S.LinkContainer>
       <S.FormContainer>
         <Text>

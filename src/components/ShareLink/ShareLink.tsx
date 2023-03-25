@@ -49,7 +49,7 @@ const ShareLink = ({ isOpen, onClose }: ShareLinkProps) => {
   return (
     <>
       <S.Container isOpen={isOpen}>
-        <S.Heading>공유하기</S.Heading>
+        <S.Heading>링크 나에게로 보내놓기</S.Heading>
         <S.LinkContainer>
           <FacebookShareButton url={currentUrl} onClick={onClose}>
             <FacebookIcon size={48} round borderRadius={24} />
