@@ -15,6 +15,7 @@ const Video = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const user = useAppSelector((state: RootState) => state.user);
+
   const [video, setVideo] = useState(findUserPreferedVideo(user));
   const [isError, setIsError] = useState(false);
 
@@ -23,14 +24,18 @@ const Video = () => {
   };
 
   const handleVideoEnded = useCallback(() => {
+    if (!video.id) return;
+
     dispatch(setSeenVideos({ videoId: video.id }));
     navigate('/main');
-  }, [dispatch, navigate, video.id]);
+  }, [dispatch, navigate, video]);
 
   const handelVideoError = useCallback(() => {
+    if (!video.id) return;
+
     dispatch(setSeenVideos({ videoId: video.id }));
     setIsError(true);
-  }, [dispatch, video.id]);
+  }, [dispatch, video]);
 
   const handleButtonClick = useCallback(() => {
     setVideo(findUserPreferedVideo(user));
