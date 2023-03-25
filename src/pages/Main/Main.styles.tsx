@@ -14,6 +14,7 @@ export const Container = styled.div`
 
   p {
     width: 100%;
+    text-align: left;
     line-height: 1.5;
     white-space: pre-wrap;
   }
@@ -39,6 +40,11 @@ export const FormContainer = styled.div`
   gap: ${pxToRem(24)};
   width: 100%;
   max-width: ${pxToRem(760)};
+  margin-top: ${pxToRem(8)};
+
+  h3 {
+    margin-bottom: ${pxToRem(-16)};
+  }
 `;
 
 export const SurveyContainer = styled.div`
@@ -48,4 +54,12 @@ export const SurveyContainer = styled.div`
   gap: ${pxToRem(24)};
   width: 100%;
   max-width: ${pxToRem(760)};
+`;
+
+export const Heading = styled.h3`
+  width: 100%;
+  margin-top: 0;
+  font-size: ${pxToRem(18)};
+  text-align: left;
+  line-height: 1.5;
 `;
