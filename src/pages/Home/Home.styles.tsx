@@ -14,20 +14,23 @@ export const Container = styled.div`
 
 export const Header = styled(Text)`
   margin-bottom: ${pxToRem(16)};
+  font-size: ${({ theme }) => theme.fontSizes.lg};
   text-align: center;
   white-space: pre-wrap;
   line-height: 1.4;
 
   @media ${({ theme }) => theme.breakpoints.md} {
-    font-size: ${({ theme }) => theme.fontSizes.lg};
+    font-size: ${({ theme }) => theme.fontSizes.xl};
   }
 `;
 
 export const Footer = styled(Text)`
   margin-top: ${pxToRem(8)};
+  font-size: ${({ theme }) => theme.fontSizes.lg};
+  font-weight: 700;
 
   @media ${({ theme }) => theme.breakpoints.md} {
     margin-top: ${pxToRem(16)};
-    font-size: ${({ theme }) => theme.fontSizes.lg};
+    font-size: ${({ theme }) => theme.fontSizes.xl};
   }
 `;

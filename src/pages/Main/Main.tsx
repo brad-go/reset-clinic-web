@@ -20,18 +20,19 @@ const Main = () => {
     <S.Container>
       <Gallery images={CRAVING_RESPONSE_IMAGES} />
       <S.LinkContainer>
+        <Text size={18} weight="bold">
+          도움이 되셨나요?
+        </Text>
         <Text>
-          도움이 되셨나요?{'\n'}이 페이지가 담배를 참는 데에 도움이 되셨다면
-          SNS로 공유하시거나 링크를 저장해 두시고 담배가 땡길 때마다 들어오세요!
+          이 페이지가 담배를 참는 데에 도움이 되셨다면 링크를 저장해 두시고
+          담배가 땡길 때마다 들어오세요!
         </Text>
         <Button onClick={handleShareLinkClick}>링크 나에게로 보내놓기</Button>
       </S.LinkContainer>
       <S.FormContainer>
         <Text>
-          다음번 담배가 땡길 때 다시 방문하시면 원하는 종류의 영상을 틀어
-          드릴게요.{'\n'}&lt;동기부여 영상&gt;, &lt;흡연에 대한 생각을 바꿔 주는
-          영상&gt;, &lt;웃긴 영상&gt; 중 원하는 영상 종류와 닉네임을 입력해
-          주세요.
+          담배가 땡길 때 다시 방문하면 선택하신 종류의 영상을 틀어 드릴게요!
+          보라색 박스를 선택해 주세요.
         </Text>
         <Form />
       </S.FormContainer>

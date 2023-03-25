@@ -14,14 +14,14 @@ export const Fieldset = styled.fieldset`
 `;
 
 export const Legend = styled.legend`
-  font-weight: 500;
+  font-weight: 700;
 `;
 
 export const Label = styled.label`
   position: relative;
   display: block;
   margin-bottom: ${pxToRem(28)};
-  font-weight: 500;
+  font-weight: 700;
 `;
 
 export const ButtonContainer = styled.div`

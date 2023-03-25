@@ -131,7 +131,7 @@ const Form = () => {
         </S.Fieldset>
       ))}
       <S.Label htmlFor="nickname">
-        닉네임을 지정해주세요.
+        3. 닉네임을 지정해주세요!
         <Input
           id="nickname"
           name="nickname"

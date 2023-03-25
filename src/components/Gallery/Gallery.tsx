@@ -20,7 +20,9 @@ const Gallery = ({ images, width = '100%' }: GalleryProps) => {
 
   return (
     <S.Container width={width}>
-      <S.Message>담배를 참는데 도움이 되는 행동을 추천해 드릴게요!</S.Message>
+      <S.Message size={18}>
+        담배를 참는데 도움이 되는 행동을 추천해 드릴게요!
+      </S.Message>
       <S.Image
         src={images[index].url}
         alt={`갈망 대응 이미지 ${images[index].id}`}

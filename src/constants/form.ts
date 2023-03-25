@@ -52,13 +52,13 @@ export const PREFERENCE_OPTIONS: PreferenceOption[] = [
 export const FIELDSETS = [
   {
     id: 'smokingStatus',
-    legend: '현재 흡연 중이신지, 금연 생각은 있으신지 알려주세요!',
+    legend: '1. 현재 당신의 흡연 상황은 어떤가요?',
     options: SMOKING_OPTIONS,
     errorMessage: '흡연 여부를 선택해 주세요.',
   },
   {
     id: 'preference',
-    legend: '원하시는 영상 종류를 선택해 주세요.',
+    legend: '2. 추후 원하는 영상 종류는 무엇인가요?',
     options: PREFERENCE_OPTIONS,
     errorMessage: '원하시는 영상 종류 하나를 선택해 주세요.',
   },

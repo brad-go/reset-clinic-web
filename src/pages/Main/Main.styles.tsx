@@ -13,6 +13,7 @@ export const Container = styled.div`
   padding: 5vw;
 
   p {
+    width: 100%;
     line-height: 1.5;
     white-space: pre-wrap;
   }
@@ -29,6 +30,7 @@ export const LinkContainer = styled.div`
   align-items: flex-end;
   width: 100%;
   max-width: ${pxToRem(760)};
+  text-align: left;
 `;
 
 export const FormContainer = styled.div`

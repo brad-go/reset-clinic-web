@@ -11,17 +11,17 @@ export const Container = styled.div<{ width: string | number }>`
 `;
 
 export const Message = styled(Text)`
-  margin-bottom: ${pxToRem(8)};
-  font-weight: 500;
+  margin-bottom: ${pxToRem(32)};
+  font-weight: 700;
 
   @media ${({ theme }) => theme.breakpoints.sm} {
     font-size: ${({ theme }) => theme.fontSizes.lg};
-    margin-bottom: ${pxToRem(12)};
+    margin-bottom: ${pxToRem(40)};
   }
 
   @media ${({ theme }) => theme.breakpoints.lg} {
     font-size: ${({ theme }) => theme.fontSizes.xl};
-    margin-bottom: ${pxToRem(16)};
+    margin-bottom: ${pxToRem(60)};
   }
 `;
 

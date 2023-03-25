@@ -47,7 +47,7 @@ export type FontWeight =
 export interface TextProps extends PropsWithChildren {
   id?: string;
   as?: TextElement;
-  size?: keyof FontSize;
+  size?: keyof FontSize | number;
   weight?: FontWeight;
   color?: keyof Color;
   align?: TextAlign;
