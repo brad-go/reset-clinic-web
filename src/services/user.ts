@@ -1,29 +1,15 @@
-import axios, { AxiosRequestConfig } from 'axios';
+import { v4 as uuidv4 } from 'uuid';
 
 import { VIDEOS } from '@/constants';
 import { getRandomNumberWithRange } from '@/utils';
 
-import type { User, RequestData } from '@/types';
+import type { User } from '@/types';
 import type { Video, VideoType } from '@/constants/video';
 
-const axiosConfig: AxiosRequestConfig = {
-  baseURL: import.meta.env.VITE_API_END_POINT,
-};
+export const generateRandomUniqueId = () => {
+  const uniqueId = uuidv4();
 
-const instance = axios.create(axiosConfig);
-
-export const requestUserData = async (url: string, data: RequestData) => {
-  try {
-    const response = await instance.post(url, data, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-
-    console.log(response);
-  } catch (e) {
-    throw new Error(`API 요청 실패. ${(e as Error).message}`);
-  }
+  return BigInt(`0x${uniqueId.replace(/-/g, '')}`).toString();
 };
 
 const getRandomVideo = (videos: Video[], videoType: VideoType) => {
@@ -35,7 +21,7 @@ const getRandomVideo = (videos: Video[], videoType: VideoType) => {
     return preferedVideos[index];
   }
 
-  return videos[getRandomNumberWithRange(0, preferedVideos.length - 1)];
+  return videos[getRandomNumberWithRange(0, videos.length - 1)];
 };
 
 export const findUserPreferedVideo = (user: User) => {
