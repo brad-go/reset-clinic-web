@@ -10,6 +10,7 @@ interface VideoPlayerProps {
   onPlay?: () => void;
   onPause?: () => void;
   onEnded?: () => void;
+  onError?: () => void;
 }
 
 const VideoPlayer = ({
@@ -20,6 +21,7 @@ const VideoPlayer = ({
   onPlay,
   onPause,
   onEnded,
+  onError,
 }: VideoPlayerProps) => {
   return (
     <S.Container width={width}>
@@ -33,6 +35,7 @@ const VideoPlayer = ({
         onPlay={onPlay}
         onPause={onPause}
         onEnded={onEnded}
+        onError={onError}
       />
     </S.Container>
   );

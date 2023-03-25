@@ -6,16 +6,9 @@ import { Input } from '@/components/Input';
 import { Select } from '@/components/Select';
 import { setUser } from '@/store/userSlice';
 import { useAppDispatch, useAppSelector } from '@/hooks';
-import { requestUserData } from '@/services';
-import { getLocalDateString } from '@/utils';
 
 import type { RootState } from '@/store';
-import type {
-  CustomObject,
-  FormRequest,
-  SmokingStatus,
-  Preference,
-} from '@/types';
+import type { CustomObject, SmokingStatus, Preference } from '@/types';
 
 import * as S from './Form.styles';
 
@@ -78,26 +71,6 @@ const Form = () => {
     dispatch(setUser(newUser));
   }, [dispatch, values, user]);
 
-  const logUser = useCallback(async () => {
-    const { visitorId } = user;
-    const { nickname, preference, smokingStatus } = values;
-    const userData = {
-      visitorId,
-      nickname,
-      preference,
-      smokingStatus,
-      formSavedAt: getLocalDateString(),
-    } as FormRequest;
-
-    try {
-      await requestUserData('/create-nickname', userData);
-      updateUser();
-      setIsSaved(true);
-    } catch (err) {
-      setErrors((prev) => ({ ...prev, nickname: true }));
-    }
-  }, [user, values, updateUser]);
-
   const handleSubmit = useCallback(
     (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
@@ -115,9 +88,10 @@ const Form = () => {
 
       if (!isValidForm()) return;
 
-      logUser();
+      updateUser();
+      setIsSaved(true);
     },
-    [isValidForm, logUser, isSaved]
+    [isSaved, isValidForm, updateUser]
   );
 
   return isSaved ? (
@@ -169,7 +143,11 @@ const Form = () => {
           onFocus={handleFocus}
         />
         {errors.nickname && (
-          <S.ErorrMessage>이미 존재하는 닉네임입니다.</S.ErorrMessage>
+          <S.ErorrMessage>
+            {values.nickname
+              ? '이미 존재하는 닉네임입니다.'
+              : '닉네임을 입력해주세요.'}
+          </S.ErorrMessage>
         )}
       </S.Label>
       <S.ButtonContainer>
