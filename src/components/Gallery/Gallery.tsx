@@ -28,7 +28,7 @@ const Gallery = ({ images, width = '100%' }: GalleryProps) => {
 
     const requestData = {
       visitorId,
-      contentsNumber: newIndex,
+      contentsNumber: index,
       nextImageOrVideoEndAt: getLocalDateString(),
     };
 
