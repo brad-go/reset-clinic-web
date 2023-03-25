@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { VideoPlayer } from '@/components';
 import { useAppDispatch, useAppSelector } from '@/hooks';
 import { setSeenVideos } from '@/store/userSlice';
-import { requestUserData, findUserPreferedVideo } from '@/services';
-import { getLocalDateString } from '@/utils';
+import { findUserPreferedVideo } from '@/services';
 
 import type { RootState } from '@/store';
 
@@ -17,14 +16,7 @@ const Video = () => {
   const video = findUserPreferedVideo(user);
 
   const handleVideoEnded = () => {
-    const requestData = {
-      visitorId: user.visitorId,
-      contentsNumber: video.id,
-      nextImageOrVideoEndAt: getLocalDateString(),
-    };
-
     dispatch(setSeenVideos({ videoId: video.id }));
-    requestUserData('/video-end', requestData);
     navigate('/main');
   };
 

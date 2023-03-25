@@ -2,25 +2,12 @@ import { NavLink } from 'react-router-dom';
 
 import { Text, Trigger } from '@/components';
 import { useAppSelector } from '@/hooks';
-import { requestUserData } from '@/services';
-import { getLocalDateString } from '@/utils';
 
 import { RootState } from '@/store';
 import * as S from './Home.styles';
 
 const Home = () => {
-  const { visitorId, nickname } = useAppSelector(
-    (state: RootState) => state.user
-  );
-
-  const handleClick = () => {
-    const requestData = {
-      visitorId,
-      at: getLocalDateString(),
-    };
-
-    requestUserData('/button-click', requestData);
-  };
+  const { nickname } = useAppSelector((state: RootState) => state.user);
 
   return (
     <S.Container>
@@ -31,7 +18,7 @@ const Home = () => {
         </S.Header>
       )}
       <NavLink to="/video">
-        <Trigger onClick={handleClick}>Press</Trigger>
+        <Trigger>Press</Trigger>
       </NavLink>
       <S.Footer>담배가 땡긴다면 눌러보세요!</S.Footer>
     </S.Container>

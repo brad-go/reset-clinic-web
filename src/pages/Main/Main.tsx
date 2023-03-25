@@ -2,39 +2,19 @@ import { useCallback, useState } from 'react';
 
 import { Text, Button, Gallery, Form, ShareLink } from '@/components';
 import { CRAVING_RESPONSE_IMAGES } from '@/constants/image';
-import { useAppSelector } from '@/hooks';
-import { requestUserData } from '@/services';
-import { RootState } from '@/store';
-import { getLocalDateString } from '@/utils';
 
 import * as S from './Main.styles';
 
 const Main = () => {
-  const { visitorId } = useAppSelector((state: RootState) => state.user);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleShareLinkClick = useCallback(() => {
-    const requestData = {
-      visitorId,
-      at: getLocalDateString(),
-    };
-
     setIsOpen(true);
-    requestUserData('/link-saved', requestData);
-  }, [visitorId]);
+  }, []);
 
   const handleShareLinkClose = useCallback(() => {
     setIsOpen(false);
   }, []);
-
-  const handleSuveyLinkClick = useCallback(() => {
-    const requestData = {
-      visitorId,
-      at: getLocalDateString(),
-    };
-
-    requestUserData('/survey-click', requestData);
-  }, [visitorId]);
 
   return (
     <S.Container>
@@ -62,11 +42,7 @@ const Main = () => {
           <Text as="b">이메일</Text>을 남겨주시면 완성되는대로 링크를
           보내드리겠습니다.
         </Text>
-        <Button
-          as="a"
-          href="https://i64yod9fzzd.typeform.com/to/iREmRYok"
-          onClick={handleSuveyLinkClick}
-        >
+        <Button as="a" href="https://i64yod9fzzd.typeform.com/to/iREmRYok">
           설문조사 하러 가기
         </Button>
       </S.SurveyContainer>
