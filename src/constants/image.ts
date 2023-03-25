@@ -36,4 +36,16 @@ export const CRAVING_RESPONSE_IMAGES: CravingResponseImage[] = [
     id: 8,
     url: '/images/08.png',
   },
+  {
+    id: 9,
+    url: '/images/09.png',
+  },
+  {
+    id: 10,
+    url: '/images/10.png',
+  },
+  {
+    id: 11,
+    url: '/images/11.png',
+  },
 ];
