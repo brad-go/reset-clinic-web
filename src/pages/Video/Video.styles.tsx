@@ -18,6 +18,18 @@ export const Container = styled.div`
   }
 `;
 
+export const SurveyContainer = styled.div`
+  padding: 0 5vw;
+`;
+
+export const SurveyHeading = styled.h3`
+  width: 100%;
+  margin-bottom: ${pxToRem(32)};
+  font-size: ${({ theme }) => theme.fontSizes.xl};
+  text-align: center;
+  line-height: 1.5;
+`;
+
 export const ReassignButton = styled(Button)`
   position: absolute;
   bottom: 5vh;

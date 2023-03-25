@@ -6,5 +6,5 @@ export {
   FIELDSETS,
 } from './form';
 export { KAKAO } from './kakao';
-export { VIDEOS } from './video';
+export { VIDEOS, VIDEO_COUNTS } from './video';
 export { CRAVING_RESPONSE_IMAGES } from './image';

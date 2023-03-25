@@ -65,3 +65,5 @@ export const VIDEOS: Video[] = [
     type: 'DISTRACTION',
   },
 ];
+
+export const VIDEO_COUNTS = VIDEOS.length;
