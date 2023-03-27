@@ -1,3 +1,3 @@
-export { pxToRem, createBreakPoint } from './style';
-export { getRandomNumberWithRange } from './random';
-export { getLocalDateString } from './date';
+export { pxToRem, createBreakPoint } from './styleUtils';
+export { getRandomNumberWithRange } from './randomUtils';
+export { getLocalDateString } from './dateUtils';
