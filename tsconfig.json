@@ -21,6 +21,6 @@
     },
     "typeRoots": ["./@types", "./node_modules/@types"]
   },
-  "include": ["src", ".eslintrc.cjs", "@types"],
+  "include": ["src", "@types"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

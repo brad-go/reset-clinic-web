@@ -23,5 +23,11 @@ dist-ssr
 *.sln
 *.sw?
 
-.eslintcache
+# Environment Vriables
 .env
+
+# Test
+coverage
+
+## Etc
+.eslintcache

@@ -2,6 +2,8 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    jest: true,
+    node: true,
   },
   settings: {
     'import/resolver': {
@@ -28,6 +30,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
     project: './tsconfig.json',
+    tsconfigRootDir: __dirname,
   },
   plugins: ['react', 'react-hooks', 'import', '@typescript-eslint', 'prettier'],
   rules: {
@@ -63,5 +66,27 @@ module.exports = {
         'react/prop-types': 0,
       },
     },
+    {
+      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+      env: {
+        'jest/globals': true,
+      },
+      plugins: ['jest', 'jest-dom', 'testing-library'],
+      extends: [
+        'plugin:jest/recommended',
+        'plugin:jest-dom/recommended',
+        'plugin:testing-library/react',
+      ],
+      rules: {
+        'no-undersocre-dangle': 'off',
+        'import/no-extraneous-dependencies': [
+          'error',
+          {
+            devDependencies: ['**/*.test.ts', '**/*.spec.ts'],
+          },
+        ],
+      },
+    },
   ],
+  ignorePatterns: ['.eslintrc.cjs', '*setup.[jt]s', '*.config.cjs'],
 };
