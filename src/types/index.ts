@@ -15,11 +15,4 @@ export interface CustomObject<T> {
   [key: string]: T;
 }
 
-export type {
-  DefaultRequest,
-  LandingRequest,
-  ImageVideoRequest,
-  FormRequest,
-  RequestData,
-} from './request';
 export type { User, Preference, SmokingStatus } from './user';
