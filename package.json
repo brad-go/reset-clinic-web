@@ -12,7 +12,7 @@
     "prepare": "husky install",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test": "jest"
+    "test": "jest --watch"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
@@ -43,6 +43,8 @@
     "@storybook/testing-library": "^0.0.13",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
+    "@testing-library/react-hooks": "^8.0.1",
+    "@testing-library/user-event": "^14.4.3",
     "@types/jest": "^29.5.0",
     "@types/react": "^18.0.28",
     "@types/react-copy-to-clipboard": "^5.0.4",
