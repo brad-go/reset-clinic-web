@@ -2,8 +2,8 @@ const config = {
   collectCoverage: true,
   collectCoverageFrom: [
     'src/**/*.ts(x)?',
-    '!src/**/stories.tsx',
-    '!src/**/styles.ts',
+    '!src/**/*.stories.tsx',
+    '!src/**/*.styles.tsx',
     '!src/pages/**/*.ts(x)?',
     '!src/constants/**/*.ts',
     '!src/styles/**',
